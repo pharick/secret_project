@@ -14,5 +14,7 @@
 # define FT_NUMBER_H
 
 unsigned int	ft_atoi(char* str);
+int             check_positive_int(char *str);
+int                is_digit(char c);
 
 #endif

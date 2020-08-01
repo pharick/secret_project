@@ -57,8 +57,6 @@ char *remove_spaces(char *str)
 	int i;
 
 	i = 0;
-	printf("%d\n", ft_strlen_without_spaces(str));
-
 	dest = (char*)malloc(sizeof(char) * (ft_strlen_without_spaces(str) + 1));
 	if (!dest)
 		return (NULL);

@@ -15,7 +15,9 @@
 
 # include <stdlib.h>
 
-int ft_strlen_without_spaces(char *str);
-char *remove_spaces(char *str);
+int     ft_strlen_without_spaces(char *str);
+char    *remove_spaces(char *str);
+int     ft_strlen(char *start, char *end);
+char    *ft_strdup(char *start, char *end);
 
 #endif

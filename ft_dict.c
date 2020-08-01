@@ -6,12 +6,10 @@
 /*   By: cbelva <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/01 12:57:58 by cbelva            #+#    #+#             */
-/*   Updated: 2020/08/01 20:16:12 by cbelva           ###   ########.fr       */
+/*   Updated: 2020/08/01 22:59:50 by cmerope          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
 #include "ft_dict.h"
 
 t_dict    *create_node(char *number, char *str)
@@ -39,7 +37,6 @@ t_dict	*parse_line(char *line)
 	while (is_digit(*end))
 		end++;
 	number = ft_strdup(start, end);
-	printf("%s\n", number);
 	if (!number)
 		return (NULL);
 	start = end;
@@ -54,7 +51,6 @@ t_dict	*parse_line(char *line)
 	while (*end)
 		end++;
 	str = ft_strdup(start, end);
-	printf("%s\n", str);
 	if (!str)
 		return (NULL);
 	node = create_node(number, str);
@@ -92,12 +88,13 @@ t_dict	*parse_dict(char *path)
 	char 	str[BUFF_LEN];
 	char 	buff;
 	t_dict	*list;
+	t_dict	*node;
 
 	fd = open(path, O_RDONLY);
 	if (fd < 0)
 		return (NULL);
 	i = 0;
-	while (read(fd, buff, 1))
+	while (read(fd, &buff, 1))
 	{
 		if (buff != '\n')
 		{
@@ -109,7 +106,7 @@ t_dict	*parse_dict(char *path)
 		else
 		{
 			str[i] = '\0';
-			noda = parse_line(str);
+			node = parse_line(str);
 			ft_list_push_front(&list, node);
 			i = 0;
 		}

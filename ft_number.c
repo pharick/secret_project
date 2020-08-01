@@ -6,9 +6,11 @@
 /*   By: cbelva <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/01 17:41:12 by cbelva            #+#    #+#             */
-/*   Updated: 2020/08/01 19:48:56 by cbelva           ###   ########.fr       */
+/*   Updated: 2020/08/01 22:50:58 by cmerope          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "ft_number.h"
 
 int				is_digit(char c)
 {
@@ -23,9 +25,10 @@ int				check_positive_int(char *str)
 		str++;
 	while (*str)
 	{
-		if (!(is_digit*str)
+		if (!(is_digit(*str)))
 		str++;
 	}
+	return (0);
 }
 
 unsigned int	ft_atoi(char *str)
