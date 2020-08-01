@@ -10,16 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_DICT_H
-# define FT_DICT_H
+#ifndef FT_STR_H
+# define FT_STR_H
 
-typedef struct	s_dict
-{
-	char        	*number;
-	char	    	*str;
-	struct s_dict	*next;
-}					t_dict;
+# include <stdlib.h>
 
-t_dict				*parse_line(char *line);
+int ft_strlen_without_spaces(char *str);
+char *remove_spaces(char *str);
 
 #endif
