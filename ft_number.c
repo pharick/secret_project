@@ -1,27 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_dict.h                                          :+:      :+:    :+:   */
+/*   ft_number.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cbelva <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/01 13:00:37 by cbelva            #+#    #+#             */
-/*   Updated: 2020/08/01 19:53:35 by cbelva           ###   ########.fr       */
+/*   Created: 2020/08/01 17:41:12 by cbelva            #+#    #+#             */
+/*   Updated: 2020/08/01 19:48:56 by cbelva           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_DICT_H
-# define FT_DICT_H
-
-# define BUFF_LEN 20
-
-typedef struct	s_dict
+int				is_digit(char c)
 {
-	char        	*number;
-	char	    	*str;
-	struct s_dict	*next;
-}					t_dict;
+	return (c >= '0' && c <= '9');
+}
 
-t_dict				*parse_line(char *line);
+int				check_positive_int(char *str)
+{
+	if (!str)
+		return (0);
+	if (*str == '+')
+		str++;
+	while (*str)
+	{
+		if (!(is_digit*str)
+		str++;
+	}
+}
 
-#endif
+unsigned int	ft_atoi(char *str)
+{
+	unsigned int	number;
+	int				d;
+
+	number = 0;
+	while ((*str >= '0') && (*str <= '9'))
+	{
+		d = *str - '0';
+		number = number * 10 + d;
+	}
+	return (number);
+}

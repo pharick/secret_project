@@ -6,7 +6,7 @@
 /*   By: cbelva <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/01 16:05:24 by cbelva            #+#    #+#             */
-/*   Updated: 2020/08/01 17:12:06 by cbelva           ###   ########.fr       */
+/*   Updated: 2020/08/01 20:16:08 by cbelva           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,9 @@
 
 int	main(void)
 {
-	t_dict	*node;
+	t_dict	*list;
+	char	path[] = "numbers.dict";
 
-	node = parse_line("16 : sweet sixteen");
-	if (!node)
-	{
-		printf("null\n");
-		return (1);
-	}
-	printf("%s %s\n", node->number, node->str);
+	list = parse_dict(path);
 	return (0);
 }

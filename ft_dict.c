@@ -6,7 +6,7 @@
 /*   By: cbelva <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/01 12:57:58 by cbelva            #+#    #+#             */
-/*   Updated: 2020/08/01 17:20:32 by cbelva           ###   ########.fr       */
+/*   Updated: 2020/08/01 20:16:12 by cbelva           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,55 +14,16 @@
 #include <stdio.h>
 #include "ft_dict.h"
 
-int		is_digit(char c)
+t_dict    *create_node(char *number, char *str)
 {
-	return (c >= '0' && c <= '9');
-}
+    t_dict    *node;
 
-t_dict	*create_node(char *number, char *str)
-{
-	t_dict	*node;
-
-	node = (t_dict*)malloc(sizeof(t_dict));
-	if (!node)
-		return (NULL);
-	node->number = number;
-	node->str = str;
-	return(node);
-}
-
-int		ft_strlen(char *start, char *end)
-{
-	int	len;
-
-	len = 0;
-	while (start < end)
-	{
-		len++;
-		start++;
-	}
-	return (len);
-}
-
-char	*ft_strdup(char *start, char *end)
-{
-	char	*dest;
-	char	*iter;
-	int		len;
-
-	len = ft_strlen(start, end);
-	dest = (char*)malloc((len + 1) * sizeof(char));
-	if (!dest)
-		return (NULL);
-	iter = dest;
-	while (start < end)
-	{
-		*iter = *start;
-		iter++;
-		start++;
-	}
-	*iter = '\0';
-	return (dest);
+    node = (t_dict*)malloc(sizeof(t_dict));
+    if (!node)
+        return (NULL);
+    node->number = number;
+    node->str = str;
+    return(node);
 }
 
 t_dict	*parse_line(char *line)
@@ -98,4 +59,63 @@ t_dict	*parse_line(char *line)
 		return (NULL);
 	node = create_node(number, str);
 	return (node);
+}
+
+char	*ft_strdup_length(char *str, int lenght)
+{
+	int 	i;
+	char	*dest;
+
+	dest = (char*)malloc(sizeof(char) * (lenght + 1));
+	if (dest == NULL)
+		return (NULL);
+	i = 0;
+	while (str[i])
+	{
+		dest[i] = str[i];
+		i++;
+	}
+	dest[i] = '\0';
+	return (dest);
+}
+
+void	ft_list_push_front(t_dict **begin_list, t_dict *node)
+{
+	node->next = *begin_list;
+	*begin_list = node;
+}
+
+t_dict	*parse_dict(char *path)
+{
+	int		i;
+	int 	fd;
+	char 	str[BUFF_LEN];
+	char 	buff;
+	t_dict	*list;
+
+	fd = open(path, O_RDONLY);
+	if (fd < 0)
+		return (NULL);
+	i = 0;
+	while (read(fd, buff, 1))
+	{
+		if (buff != '\n')
+		{
+			str[i] = buff;
+			i++;
+			if (i > BUFF_LEN - 2)
+				ft_strdup_length(str, i * 2);
+		}
+		else
+		{
+			str[i] = '\0';
+			noda = parse_line(str);
+			ft_list_push_front(&list, node);
+			i = 0;
+		}
+	}
+	close(fd);
+	if (close < 0)
+		return (NULL);
+	return (list);
 }
