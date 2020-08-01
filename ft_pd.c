@@ -1,9 +1,29 @@
+#include <stdlib.h>
+
+char	*ft_strup(char *str, int lenght)
+{
+	int 	i;
+	char	*dest;
+
+	dest = (char*)malloc(sizeof(char) * lenght);
+	if (dest == NULL)
+		return (NULL);
+	i = 0;
+	while (str[i])
+	{
+		dest[i] = str[i];
+		i++;
+		p.
+	}
+	dest[i] = '\0';
+	return (dest);
+}
 
 t_dict	*parse_dict(char *path)
 {
 	int i;
 	int fd;
-	char str[4096];
+	char str[20];
 	char buff;
 
 	fd = open(path, O_RDONLY);
@@ -19,6 +39,8 @@ t_dict	*parse_dict(char *path)
 		{
 			str[i] += buff;
 			i++;
+			if (str[i + 1] =='\0')
+				ft_strup(str, i * 2);
 		}
 		else
 		{
