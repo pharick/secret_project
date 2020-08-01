@@ -6,11 +6,12 @@
 /*   By: cbelva <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/01 12:57:58 by cbelva            #+#    #+#             */
-/*   Updated: 2020/08/01 16:42:05 by cbelva           ###   ########.fr       */
+/*   Updated: 2020/08/01 17:20:32 by cbelva           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include <stdlib.h>
+#include <stdio.h>
 #include "ft_dict.h"
 
 int		is_digit(char c)
@@ -18,7 +19,7 @@ int		is_digit(char c)
 	return (c >= '0' && c <= '9');
 }
 
-t_dict	*create_node(int number, char *str)
+t_dict	*create_node(char *number, char *str)
 {
 	t_dict	*node;
 
@@ -34,6 +35,7 @@ int		ft_strlen(char *start, char *end)
 {
 	int	len;
 
+	len = 0;
 	while (start < end)
 	{
 		len++;
@@ -76,9 +78,10 @@ t_dict	*parse_line(char *line)
 	while (is_digit(*end))
 		end++;
 	number = ft_strdup(start, end);
+	printf("%s\n", number);
 	if (!number)
 		return (NULL);
-	start = end + 1;
+	start = end;
 	while (*start == ' ')
 		start++;
 	if (*start != ':')
@@ -90,13 +93,9 @@ t_dict	*parse_line(char *line)
 	while (*end)
 		end++;
 	str = ft_strdup(start, end);
+	printf("%s\n", str);
 	if (!str)
 		return (NULL);
-	node = (t_dict*)malloc(sizeof(t_dict));
-	if (!node)
-		return (NULL);
-	node->number = number;
-	node->str = str;
-	node->next = NULL;
+	node = create_node(number, str);
 	return (node);
 }
