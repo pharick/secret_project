@@ -6,7 +6,7 @@
 /*   By: cbelva <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/01 16:05:24 by cbelva            #+#    #+#             */
-/*   Updated: 2020/08/02 14:15:44 by cbelva           ###   ########.fr       */
+/*   Updated: 2020/08/02 14:46:08 by khotah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int		main(int argc, char **argv)
 	char	*path;
 
 	path = "numbers.dict";
-	if (argc > 3 || argv < 2)
+	if (argc > 3 || argc < 2)
 		return (ft_error("Error"));
 	if (argc == 3)
 	{
@@ -56,7 +56,7 @@ int		main(int argc, char **argv)
 		return (1);
 	list = parse_dict(fd);
 	if (close(fd) < 0)
-		return (NULL);
+		return (1);
 	ft_putstr(ft_search_number(argv[1], list));
 	return (0);
 }
