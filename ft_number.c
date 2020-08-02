@@ -6,7 +6,7 @@
 /*   By: cbelva <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/01 17:41:12 by cbelva            #+#    #+#             */
-/*   Updated: 2020/08/02 16:24:21 by esobchak         ###   ########.fr       */
+/*   Updated: 2020/08/02 16:36:38 by cbelva           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,18 @@ int				is_digit(char c)
 	return (c >= '0' && c <= '9');
 }
 
-int		valid_number(char *str)
+int		validate_number(char *str)
 {
 	int i;
 
 	i =  0;
-	if (str[i] == '\0')
+	if (str[i] == '\0' || !str)
 		return (1);
-	if (str[i] == 43)
+	if (str[i] == '+')
 		i++;
 	while (str[i])
 	{
-		if (str[i] < 48 && str[i] > 57)
+		if (str[i] < '0' || str[i] > '9')
 			return (1);
 		i++;
 	}
