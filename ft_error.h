@@ -6,14 +6,14 @@
 /*   By: cbelva <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/02 13:55:47 by cbelva            #+#    #+#             */
-/*   Updated: 2020/08/02 14:02:04 by cbelva           ###   ########.fr       */
+/*   Updated: 2020/08/02 14:48:18 by cbelva           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_ERROR_H
 # define FT_ERROR_H
 
-int    ft_error(char *str);
-void    ft_putstr(char *str);
+int		ft_error(char *str);
+void	ft_putstr(char *str);
 
 #endif

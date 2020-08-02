@@ -6,11 +6,11 @@
 /*   By: cbelva <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/02 13:53:19 by cbelva            #+#    #+#             */
-/*   Updated: 2020/08/02 14:11:58 by cbelva           ###   ########.fr       */
+/*   Updated: 2020/08/02 14:48:47 by cbelva           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "ft_error.h"
+#include "ft_error.h"
 
 int	ft_error(char *str)
 {
