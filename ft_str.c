@@ -1,40 +1,40 @@
 #include "ft_str.h"
 
-int        ft_strlen(char *start, char *end)
+int		ft_strlen(char *start, char *end)
 {
-    int    len;
+	int	len;
 
-    len = 0;
-    while (start < end)
-    {
-        len++;
-        start++;
-    }
-    return (len);
+	len = 0;
+	while (start < end)
+	{
+		len++;
+		start++;
+	}
+	return (len);
 }
 
-char    *ft_strdup(char *start, char *end)
+char	*ft_strdup(char *start, char *end)
 {
-    char    *dest;
-    char    *iter;
-    int        len;
+	char	*dest;
+	char	*iter;
+	int		len;
 
-    len = ft_strlen(start, end);
-    dest = (char*)malloc((len + 1) * sizeof(char));
-    if (!dest)
-        return (NULL);
-    iter = dest;
-    while (start < end)
-    {
-        *iter = *start;
-        iter++;
-        start++;
-    }
-    *iter = '\0';
-    return (dest);
+	len = ft_strlen(start, end);
+	dest = (char*)malloc((len + 1) * sizeof(char));
+	if (!dest)
+		return (NULL);
+	iter = dest;
+	while (start < end)
+	{
+		*iter = *start;
+		iter++;
+		start++;
+	}
+	*iter = '\0';
+	return (dest);
 }
 
-int ft_strlen_without_spaces(char *str)
+int 	ft_strlen_without_spaces(char *str)
 {
 	int len;
 	int	i;
@@ -50,7 +50,7 @@ int ft_strlen_without_spaces(char *str)
 	return (len);
 }
 
-char *remove_spaces(char *str)
+char 	*remove_spaces(char *str)
 {
 	char *dest;
 	char *iter;
@@ -71,6 +71,5 @@ char *remove_spaces(char *str)
 		i++;
 	}
 	*iter = '\0';
-
 	return (dest);
 }

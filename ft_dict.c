@@ -6,11 +6,12 @@
 /*   By: cbelva <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/01 12:57:58 by cbelva            #+#    #+#             */
-/*   Updated: 2020/08/02 11:23:10 by khotah           ###   ########.fr       */
+/*   Updated: 2020/08/02 12:28:27 by cbelva           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_dict.h"
+#include <stdio.h>
 
 t_dict    *create_node(char *number, char *str)
 {
@@ -26,35 +27,34 @@ t_dict    *create_node(char *number, char *str)
 
 t_dict	*parse_line(char *line)
 {
-	t_dict	*node;
 	char 	*number;
 	char	*str;
-	char	*start;
 	char	*end;
 
-	start = line;
-	end = start;
+	printf("%s\n", line);
+	end = line;
 	while (is_digit(*end))
 		end++;
-	number = ft_strdup(start, end);
+	number = ft_strdup(line, end);
 	if (!number)
 		return (NULL);
-	start = end;
-	while (*start == ' ')
-		start++;
-	if (*start != ':')
-		return (NULL);
-	start++;
-	while (*start == ' ')
-		start++;
-	end = start;
+	line = end;
+	while (*line != ':')
+	{
+		if (*line != ' ')
+			return (NULL);
+		line++;
+	}
+	line++;
+	while (*line == ' ')
+		line++;
+	end = line;
 	while (*end)
 		end++;
-	str = ft_strdup(start, end);
+	str = ft_strdup(line, end);
 	if (!str)
 		return (NULL);
-	node = create_node(number, str);
-	return (node);
+	return (create_node(number, str));
 }
 
 char	*ft_strdup_double(char *str, int lenght)
@@ -108,7 +108,7 @@ t_dict	*parse_dict(char *path)
 		else
 		{
 			str[i] = '\0';
-			node = parse_line(str);
+			node = parse_line(remove_spaces(str));
 			ft_list_push_front(&list, node);
 			i = 0;
 		}
