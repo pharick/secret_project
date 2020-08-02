@@ -6,7 +6,7 @@
 /*   By: cbelva <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/01 17:41:12 by cbelva            #+#    #+#             */
-/*   Updated: 2020/08/01 22:50:58 by cmerope          ###   ########.fr       */
+/*   Updated: 2020/08/02 12:57:36 by khotah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int				check_positive_int(char *str)
 	while (*str)
 	{
 		if (!(is_digit(*str)))
-		str++;
+			str++;
 	}
 	return (0);
 }
