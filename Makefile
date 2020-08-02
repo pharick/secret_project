@@ -1,12 +1,12 @@
 NAME    = rush-02
 
-SRCS    = ft_dict.c ft_number.c ft_str.c ft_error.c
+SRCS    = ft_dict.c ft_number.c ft_str.c ft_error.c ft_parse.c
 
 LIB		= ftlib.a
 
-OBJS    = ft_dict.o ft_number.o ft_str.o ft_error.o
+OBJS    = ${SRCS:.c=.o}
 
-HEADER  = ft_dict.h ft_number.h ft_str.h ft_error.h
+HEADER  = ${SRCS:.c=.h}
 
 HFLAGS  = -I
 

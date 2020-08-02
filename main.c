@@ -6,10 +6,12 @@
 /*   By: cbelva <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/01 16:05:24 by cbelva            #+#    #+#             */
-/*   Updated: 2020/08/02 17:42:14 by amuriel          ###   ########.fr       */
+/*   Updated: 2020/08/02 19:13:37 by cbelva           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
+#include "ft_parse.h"
 #include "ft_dict.h"
 #include "ft_error.h"
 
