@@ -6,7 +6,7 @@
 /*   By: cbelva <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/01 12:57:58 by cbelva            #+#    #+#             */
-/*   Updated: 2020/08/02 13:43:14 by cbelva           ###   ########.fr       */
+/*   Updated: 2020/08/02 14:15:41 by cbelva           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,17 +79,14 @@ void	ft_list_push_front(t_dict **begin_list, t_dict *node)
 	*begin_list = node;
 }
 
-t_dict	*parse_dict(char *path)
+t_dict	*parse_dict(int fd)
 {
 	int		i;
-	int		fd;
 	char	*str;
 	char	buff;
 	t_dict	*list;
 
 	str = (char*)malloc(sizeof(char) * (BUFF_LEN + 1));
-	if ((fd = open(path, O_RDONLY)) < 0)
-		return (NULL);
 	i = 0;
 	while (read(fd, &buff, 1))
 		if (buff != '\n')
@@ -105,7 +102,5 @@ t_dict	*parse_dict(char *path)
 			ft_list_push_front(&list, parse_line(remove_spaces(str)));
 			i = 0;
 		}
-	if (close(fd) < 0)
-		return (NULL);
 	return (list);
 }

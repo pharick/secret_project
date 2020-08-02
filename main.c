@@ -6,11 +6,12 @@
 /*   By: cbelva <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/01 16:05:24 by cbelva            #+#    #+#             */
-/*   Updated: 2020/08/02 13:43:12 by cbelva           ###   ########.fr       */
+/*   Updated: 2020/08/02 14:15:44 by cbelva           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_dict.h"
+#include "ft_error.h"
 
 int		ft_strcmp(char *s1, char *s2)
 {
@@ -40,14 +41,22 @@ char	*ft_search_number(char *number, t_dict *list)
 
 int		main(int argc, char **argv)
 {
+	int		fd;
 	t_dict	*list;
 	char	*path;
 
 	path = "numbers.dict";
-	if (argc == 2)
+	if (argc > 3 || argv < 2)
+		return (ft_error("Error"));
+	if (argc == 3)
 	{
-		list = parse_dict(path);
-		ft_putstr(ft_search_number(argv[1], list));
+		path = argv[1];
 	}
+	if ((fd = open(path, O_RDONLY)) < 0)
+		return (1);
+	list = parse_dict(fd);
+	if (close(fd) < 0)
+		return (NULL);
+	ft_putstr(ft_search_number(argv[1], list));
 	return (0);
 }
