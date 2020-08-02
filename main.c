@@ -6,7 +6,7 @@
 /*   By: cbelva <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/01 16:05:24 by cbelva            #+#    #+#             */
-/*   Updated: 2020/08/02 14:46:08 by khotah           ###   ########.fr       */
+/*   Updated: 2020/08/02 17:39:00 by amuriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,21 @@ char	*ft_search_number(char *number, t_dict *list)
 	}
 	return (NULL);
 }
+
+void	ft_list_clear(t_dict *begin_list)
+{
+	t_dict *tmp;
+
+	while (begin_list)
+	{
+		tmp = begin_list;
+		begin_list = begin_list->next;
+		free(tmp->number);
+		free(tmp->str);
+		free(tmp);
+	}
+}
+
 
 int		main(int argc, char **argv)
 {
