@@ -6,7 +6,7 @@
 /*   By: cbelva <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/01 16:05:24 by cbelva            #+#    #+#             */
-/*   Updated: 2020/08/02 14:46:08 by khotah           ###   ########.fr       */
+/*   Updated: 2020/08/02 16:54:13 by cbelva           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,8 @@ int		main(int argc, char **argv)
 	}
 	if ((fd = open(path, O_RDONLY)) < 0)
 		return (1);
-	list = parse_dict(fd);
+	if(!(list = parse_dict(fd)))
+		return (ft_error("Dict error"));
 	if (close(fd) < 0)
 		return (1);
 	ft_putstr(ft_search_number(argv[1], list));
