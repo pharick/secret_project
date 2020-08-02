@@ -6,7 +6,7 @@
 /*   By: cmerope <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/02 12:57:28 by cmerope           #+#    #+#             */
-/*   Updated: 2020/08/02 13:00:54 by cmerope          ###   ########.fr       */
+/*   Updated: 2020/08/02 16:09:33 by cbelva           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_putstr(char *str)
 		write(1, str++, 1);
 }
 
-int		ft_strlen(char *start, char *end)
+int		ft_strlen_end(char *start, char *end)
 {
 	int	len;
 
@@ -37,7 +37,7 @@ char	*ft_strdup(char *start, char *end)
 	char	*iter;
 	int		len;
 
-	len = ft_strlen(start, end);
+	len = ft_strlen_end(start, end);
 	dest = (char*)malloc((len + 1) * sizeof(char));
 	if (!dest)
 		return (NULL);

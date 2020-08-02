@@ -1,32 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_number.c                                        :+:      :+:    :+:   */
+/*   ft_parse.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cbelva <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/01 17:41:12 by cbelva            #+#    #+#             */
-/*   Updated: 2020/08/02 12:57:36 by khotah           ###   ########.fr       */
+/*   Created: 2020/08/02 14:49:35 by cbelva            #+#    #+#             */
+/*   Updated: 2020/08/02 16:17:28 by cbelva           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_number.h"
+#include "ft_dict.h"
 
-int				is_digit(char c)
+int		ft_strlen(char *str)
 {
-	return (c >= '0' && c <= '9');
+	int	len;
+
+	while (*str)
+	{
+		len++;
+		str++;
+	}
+	return (len);
 }
 
-unsigned int	ft_atoi(char *str)
+char	**split_number_by_triples(char *number)
 {
-	unsigned int	number;
-	int				d;
+	char	**tab;
+	char	*end;
+	int		number_len;
+	int		tab_len;
+	char	*triple;
 
-	number = 0;
-	while ((*str >= '0') && (*str <= '9'))
-	{
-		d = *str - '0';
-		number = number * 10 + d;
-	}
-	return (number);
+	end = number;
+	while (*end)
+		end++;
+	number_len = ft_strlen(number, end);
+	tab_len = number_len / 3 + number_len % 3 > 0 ? 1 : 0;
+	tab = (char**)malloc(tab_len * sizeof(char*));
+
 }
