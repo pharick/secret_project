@@ -6,7 +6,7 @@
 /*   By: cmerope <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/02 12:57:28 by cmerope           #+#    #+#             */
-/*   Updated: 2020/08/02 16:09:33 by cbelva           ###   ########.fr       */
+/*   Updated: 2020/08/02 16:43:01 by cbelva           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ char	*ft_strdup(char *start, char *end)
 	char	*iter;
 	int		len;
 
+	if (start >= end)
+		return (NULL);
 	len = ft_strlen_end(start, end);
 	dest = (char*)malloc((len + 1) * sizeof(char));
 	if (!dest)

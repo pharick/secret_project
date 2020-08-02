@@ -6,7 +6,7 @@
 /*   By: cbelva <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/02 14:49:35 by cbelva            #+#    #+#             */
-/*   Updated: 2020/08/02 16:17:28 by cbelva           ###   ########.fr       */
+/*   Updated: 2020/08/02 16:33:25 by cbelva           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,16 +27,14 @@ int		ft_strlen(char *str)
 char	**split_number_by_triples(char *number)
 {
 	char	**tab;
-	char	*end;
 	int		number_len;
 	int		tab_len;
+	int		last_triple;
 	char	*triple;
 
-	end = number;
-	while (*end)
-		end++;
-	number_len = ft_strlen(number, end);
-	tab_len = number_len / 3 + number_len % 3 > 0 ? 1 : 0;
+	number_len = ft_strlen(number);
+	last_triple = number_len % 3;
+	tab_len = number_len / 3 + last_triple > 0 ? 1 : 0;
 	tab = (char**)malloc(tab_len * sizeof(char*));
 
 }
