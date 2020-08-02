@@ -17,7 +17,7 @@ CFLAGS  =  -Wall -Wextra -Werror
 LFLAGS	= -L.
 
 .c.o:		${HFLAGS} ${HEADER}
-			${CC} ${CFLAGS}  -c $< -o ${<:.c=.o}
+			${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
 
 all:		${LIB} ${NAME}
 
