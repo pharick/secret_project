@@ -6,7 +6,7 @@
 /*   By: cbelva <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/02 14:49:35 by cbelva            #+#    #+#             */
-/*   Updated: 2020/08/02 21:03:53 by cbelva           ###   ########.fr       */
+/*   Updated: 2020/08/02 21:20:03 by cbelva           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int		ft_strlen(char *str)
 	return (len);
 }
 
-void	print_triple(char *triple, int n)
+void	print_triple(char *triple, int n, t_dict *list)
 {
 	int 	rang;
 
@@ -36,17 +36,18 @@ void	print_triple(char *triple, int n)
 	{
 		if (*triple != '0')
 		{
-			ft_putstr(ft_search_number(*triple));
+			ft_putstr(ft_search_number(triple, list));
 			ft_putstr(" ");
 			if (rang > 1)
-			ft_putstr(ft_search_number(rang == 3 ? "100" : "10"));
+				ft_putstr(ft_search_number(rang == 3 ? "100" : "10", list));
 			ft_putstr(" ");
 		}
 		rang--;
+		triple++;
 	}
 }
 
-void	split_number_by_triples(char *number)
+void	split_number_by_triples(char *number, t_dict *list)
 {
 	char	**tab;
 	int		number_len;
@@ -63,7 +64,7 @@ void	split_number_by_triples(char *number)
 		if (i > 2)
 		{
 			triple[i] = '\0';
-			print_triple(triple, 1);
+			print_triple(triple, 1, list);
 			i = 0;
 		}
 		triple[i++] = *number;

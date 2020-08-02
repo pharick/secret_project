@@ -6,11 +6,12 @@
 /*   By: cbelva <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/01 16:05:24 by cbelva            #+#    #+#             */
-/*   Updated: 2020/08/02 21:03:57 by cbelva           ###   ########.fr       */
+/*   Updated: 2020/08/02 21:20:00 by cbelva           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
+#include "ft_search.h"
 #include "ft_parse.h"
 #include "ft_error.h"
 
@@ -37,6 +38,6 @@ int		main(int argc, char **argv)
 		return (ft_error("Dict error"));
 	if (close(fd) < 0)
 		return (1);
-	ft_split_number_by_triples(number, list);
+	split_number_by_triples(number, list);
 	return (0);
 }

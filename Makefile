@@ -1,6 +1,6 @@
 NAME    = rush-02
 
-SRCS    = ft_dict.c ft_number.c ft_str.c ft_error.c ft_parse.c
+SRCS    = ft_dict.c ft_number.c ft_str.c ft_error.c ft_parse.c ft_search.c
 
 LIB		= ftlib.a
 
