@@ -1,25 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_dict.h                                          :+:      :+:    :+:   */
+/*   ft_search.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cbelva <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/01 13:00:37 by cbelva            #+#    #+#             */
-/*   Updated: 2020/08/02 20:19:51 by cbelva           ###   ########.fr       */
+/*   Created: 2020/08/02 20:43:03 by cbelva            #+#    #+#             */
+/*   Updated: 2020/08/02 20:46:12 by cbelva           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_STR_H
-# define FT_STR_H
+#ifndef FT_SEARCH_H
+# define FT_SEARCH_H
 
-# include <stdlib.h>
-# include <unistd.h>
+# include "ft_dict.h"
 
-void	ft_putstr(char *str);
-int		ft_strlen_without_spaces(char *str);
-char	*remove_spaces(char *str);
-int		ft_strlen_end(char *start, char *end);
-char	*ft_strdup(char *start, char *end);
+int     ft_strcmp(char *s1, char *s2);
+char    *ft_search_number(char *number, t_dict *list);
 
 #endif

@@ -6,11 +6,12 @@
 /*   By: cbelva <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/02 14:49:35 by cbelva            #+#    #+#             */
-/*   Updated: 2020/08/02 19:12:52 by cbelva           ###   ########.fr       */
+/*   Updated: 2020/08/02 21:03:53 by cbelva           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_parse.h"
+#include "ft_search.h"
 
 int		ft_strlen(char *str)
 {
@@ -25,18 +26,52 @@ int		ft_strlen(char *str)
 	return (len);
 }
 
-char	**split_number_by_triples(char *number)
+void	print_triple(char *triple, int n)
+{
+	int 	rang;
+
+	(void)n;
+	rang = 3;
+	while (*triple)
+	{
+		if (*triple != '0')
+		{
+			ft_putstr(ft_search_number(*triple));
+			ft_putstr(" ");
+			if (rang > 1)
+			ft_putstr(ft_search_number(rang == 3 ? "100" : "10"));
+			ft_putstr(" ");
+		}
+		rang--;
+	}
+}
+
+void	split_number_by_triples(char *number)
 {
 	char	**tab;
 	int		number_len;
-	int		tab_len;
-	int		last_triple;
-	char	*triple;
+	char	triple[4];
+	int		i;
 
 	number_len = ft_strlen(number);
-	tab = (char**)malloc(tab_len * sizeof(char*));
-
-
+	tab = (char**)malloc((number_len + number_len % 3 > 0 ? 1 : 0) * sizeof(char*));
+	i = 0;
+	while (i < 3 - number_len % 3)
+		triple[i++] = '0';
+	while (*number)
+	{
+		if (i > 2)
+		{
+			triple[i] = '\0';
+			print_triple(triple, 1);
+			i = 0;
+		}
+		triple[i++] = *number;
+		number++;
+	}
+	triple[i] = '\0';
+	ft_putstr(triple);
+	ft_putstr("\n");
 }
 
 char	*ft_strstr(char *str, char *to_find)
@@ -68,16 +103,16 @@ char	*ft_strstr(char *str, char *to_find)
 	return (0);
 }
 
-void    ft_list_clear(t_dict *begin_list)
+void	ft_list_clear(t_dict *begin_list)
 {
-    t_dict *tmp;
+	t_dict *tmp;
 
-    while (begin_list)
-    {
-        tmp = begin_list;
-        begin_list = begin_list->next;
-        free(tmp->number);
-        free(tmp->str);
-        free(tmp);
-    }
+	while (begin_list)
+	{
+		tmp = begin_list;
+		begin_list = begin_list->next;
+		free(tmp->number);
+		free(tmp->str);
+		free(tmp);
+	}
 }
