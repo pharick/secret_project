@@ -33,6 +33,6 @@ t_dict			*create_node(char *number, char *str);
 t_dict			*parse_line(char *line);
 char			*ft_strdup_length(char *str, int lenght);
 void			ft_list_push_front(t_dict **begin_list, t_dict *node);
-t_dict			*parse_dict(char *path);
+t_dict			*parse_dict(int fd);
 
 #endif

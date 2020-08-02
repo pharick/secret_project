@@ -13,6 +13,7 @@
 #ifndef FT_ERROR_H
 # define FT_ERROR_H
 
-# include "ft_str.h"
+int    ft_error(char *str);
+void    ft_putstr(char *str);
 
 #endif
