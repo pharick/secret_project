@@ -14,7 +14,9 @@
 # define FT_STR_H
 
 # include <stdlib.h>
+# include <unistd.h>
 
+void    ft_putstr(char *str);
 int     ft_strlen_without_spaces(char *str);
 char    *remove_spaces(char *str);
 int     ft_strlen(char *start, char *end);

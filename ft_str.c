@@ -1,5 +1,11 @@
 #include "ft_str.h"
 
+void	t_putstr(char *str)
+{
+	while(*str != '\0')
+		write(1, str++, 1);
+}
+
 int		ft_strlen(char *start, char *end)
 {
 	int	len;
