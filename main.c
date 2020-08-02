@@ -42,9 +42,12 @@ char	*ft_search_number(char *number, t_dict *list)
 int	main(void)
 {
 	t_dict	*list;
-	char	path[] = "numbers.dict";
+    char path[] = "numbers.dict";
+    
+    
 
 	list = parse_dict(path);
+    
 	printf("%s", ft_search_number("50", list));
 	return (0);
 }

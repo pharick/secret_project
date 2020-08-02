@@ -6,7 +6,7 @@
 /*   By: cbelva <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/01 12:57:58 by cbelva            #+#    #+#             */
-/*   Updated: 2020/08/01 22:59:50 by cmerope          ###   ########.fr       */
+/*   Updated: 2020/08/02 11:23:10 by khotah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_dict    *create_node(char *number, char *str)
 {
-    t_dict    *node;
+	t_dict    *node;
 
     node = (t_dict*)malloc(sizeof(t_dict));
     if (!node)
@@ -57,12 +57,12 @@ t_dict	*parse_line(char *line)
 	return (node);
 }
 
-char	*ft_strdup_length(char *str, int lenght)
+char	*ft_strdup_double(char *str, int lenght)
 {
 	int 	i;
 	char	*dest;
 
-	dest = (char*)malloc(sizeof(char) * (lenght + 1));
+	dest = (char*)malloc(sizeof(char) * (lenght * 2 + 1));
 	if (dest == NULL)
 		return (NULL);
 	i = 0;
@@ -72,6 +72,7 @@ char	*ft_strdup_length(char *str, int lenght)
 		i++;
 	}
 	dest[i] = '\0';
+	free(str);
 	return (dest);
 }
 
@@ -85,11 +86,12 @@ t_dict	*parse_dict(char *path)
 {
 	int		i;
 	int 	fd;
-	char 	str[BUFF_LEN];
+	char 	*str;
 	char 	buff;
 	t_dict	*list;
 	t_dict	*node;
-
+	
+	str = (char*)malloc(sizeof(char) * (BUFF_LEN + 1)); 
 	fd = open(path, O_RDONLY);
 	if (fd < 0)
 		return (NULL);
@@ -101,7 +103,7 @@ t_dict	*parse_dict(char *path)
 			str[i] = buff;
 			i++;
 			if (i > BUFF_LEN - 2)
-				ft_strdup_length(str, i * 2);
+				str = ft_strdup_double(str, i + 1);
 		}
 		else
 		{
