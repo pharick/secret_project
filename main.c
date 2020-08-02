@@ -6,11 +6,10 @@
 /*   By: cbelva <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/01 16:05:24 by cbelva            #+#    #+#             */
-/*   Updated: 2020/08/02 12:21:26 by khotah           ###   ########.fr       */
+/*   Updated: 2020/08/02 13:03:25 by khotah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "ft_dict.h"
 
 int		ft_strcmp(char *s1, char *s2)
@@ -39,22 +38,16 @@ char	*ft_search_number(char *number, t_dict *list)
 	return (NULL);
 }
 
-
-
-
-
-int	main(int argc, char **argv)
+int		main(int argc, char **argv)
 {
 	t_dict	*list;
-    char path[] = "numbers.dict";
+	char	*path;
 
-    if (argc == 2)
+	path = "numbers.dict";
+	if (argc == 2)
 	{
 		list = parse_dict(path);
 		ft_putstr(ft_search_number(argv[1], list));
-	
-
-
 	}
 	return (0);
 }
