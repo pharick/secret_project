@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_str.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cmerope <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/08/02 12:57:28 by cmerope           #+#    #+#             */
+/*   Updated: 2020/08/02 13:00:54 by cmerope          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_str.h"
 
 void	ft_putstr(char *str)
 {
-	while(*str != '\0')
+	while (*str != '\0')
 		write(1, str++, 1);
 }
 
@@ -40,7 +52,7 @@ char	*ft_strdup(char *start, char *end)
 	return (dest);
 }
 
-int 	ft_strlen_without_spaces(char *str)
+int		ft_strlen_without_spaces(char *str)
 {
 	int len;
 	int	i;
@@ -49,18 +61,19 @@ int 	ft_strlen_without_spaces(char *str)
 	len = 0;
 	while (str[i])
 	{
-		if (!(str[i] == ' ' && ((i == 0) || (str[i - 1] == ' ') || (str[i + 1] == '\0'))))
+		if (!(str[i] == ' ' && ((i == 0) || (str[i - 1] == ' ')
+			|| (str[i + 1] == '\0'))))
 			len++;
 		i++;
 	}
 	return (len);
 }
 
-char 	*remove_spaces(char *str)
+char	*remove_spaces(char *str)
 {
-	char *dest;
-	char *iter;
-	int i;
+	char	*dest;
+	char	*iter;
+	int		i;
 
 	i = 0;
 	dest = (char*)malloc(sizeof(char) * (ft_strlen_without_spaces(str) + 1));
@@ -69,7 +82,8 @@ char 	*remove_spaces(char *str)
 	iter = dest;
 	while (str[i] != '\0')
 	{
-		if (!(str[i] == ' ' && ((i == 0) || (str[i - 1] == ' ') || (str[i + 1] == '\0'))))
+		if (!(str[i] == ' ' && ((i == 0) || (str[i - 1] == ' ')
+			|| (str[i + 1] == '\0'))))
 		{
 			*iter = str[i];
 			iter++;
